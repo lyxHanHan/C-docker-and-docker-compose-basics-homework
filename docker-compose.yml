@@ -1,0 +1,21 @@
+version: '3'
+
+services:
+  alice:
+    build:
+      context: alice/.
+      dockerfile: Dockerfile
+    image: alice:1.0
+    container_name: alice
+    ports:
+      - '8080:8080'
+    depends_on:
+      - bob
+  bob:
+    build:
+      context: bob/.
+      dockerfile: Dockerfile
+    image: bob:1.0
+    container_name: bob
+    ports:
+      - '8081:8081'
